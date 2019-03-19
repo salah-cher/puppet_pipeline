@@ -1,0 +1,6 @@
+---
+
+project: Puppet_Run
+branch: master
+playbook: playbooks/puppet_run1.yml
+ansible_inventory: STG_Inventory

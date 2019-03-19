@@ -1,0 +1,5 @@
+---
+
+project: Check_Error_Puppet_Run
+branch: master
+playbook: playbooks/Check_error_Puppet_run.yml

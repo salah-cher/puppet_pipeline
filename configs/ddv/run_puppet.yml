@@ -1,0 +1,5 @@
+---
+
+project: Puppet_Run
+branch: master
+playbook: playbooks/puppet_run1.yml

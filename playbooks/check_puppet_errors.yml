@@ -1,0 +1,20 @@
+---
+- name : Check Error Puppet Run
+  hosts: Web
+  become: yes
+  become_method: sudo
+  serial: 1
+ # vars_files:
+ #   - /opt/Zonehawk_Ansible/AUDA/password.yaml
+
+  tasks:
+  - name: Check whether /tmp/puppet_run contains "error"
+    command: grep -iq error /tmp/puppet_run
+    register: checkmyconf
+    check_mode: no
+    ignore_errors: yes
+    changed_when: no
+
+  - name: inform if /tmp/puppet_run contains error
+    debug: msg="error found in the puppet run"
+    when: checkmyconf.rc == 0

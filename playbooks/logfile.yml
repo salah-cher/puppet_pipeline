@@ -1,0 +1,16 @@
+---
+- name: "Check whether log file exists"
+  stat:
+    path: "{{logfilepath}}"
+  register: checkfile
+#  check_mode: no
+#  ignore_errors: yes
+#  changed_when: false
+#  failed_when: "'FAILED' in checkfile.stderr"
+
+- name: "inform if {{logfilepath}} exists"
+  debug: msg="file found in /tmp directory then make it empty"
+
+- name : "make file empty"
+  shell: "source ~/.bash_profile && echo > {{logfilepath}}"
+  when: checkfile.stat.exists

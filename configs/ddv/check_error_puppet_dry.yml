@@ -1,0 +1,6 @@
+---
+
+project: Check_Error_Puppet_DryRun
+branch: master
+#playbook: playbooks/Check_error_Puppet_dryrun.yml
+playbook: playbooks/check_puppetdry_errors.yml

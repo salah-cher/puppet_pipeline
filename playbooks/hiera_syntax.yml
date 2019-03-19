@@ -1,0 +1,27 @@
+---
+- name : Run Hiera Syntax Check
+  hosts: Puppet
+  become: yes
+  become_method: sudo
+  #serial: 1
+ # vars_files:
+ #   - /password.yaml
+
+
+  tasks:
+  - name: Run the Hiera Syntax Check
+    script: ../scripts/hiera_check.sh
+    #script: hiera_check.sh
+    register: checksyntax
+    check_mode: no
+#    ignore_errors: yes
+    changed_when: false
+    #failed_when: "'FAILED' in checksyntax.stderr or 'Error' in checksyntax.stdout"
+    failed_when: "'Error' in checksyntax.stdout"
+
+#  - name: inform if syntax has error
+#    debug: msg="error found in the hiera files"
+#    when: "'Error' in checksyntax.stdout"
+#  - name: inform if syntax has no errors
+#    debug: msg=" No errors found in hiera files"
+#    when: checksyntax.rc != 0

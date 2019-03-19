@@ -1,0 +1,5 @@
+---
+
+project: Puppet_DryRun_SameTime
+branch: master
+playbook: playbooks/puppet_dry_10.yml

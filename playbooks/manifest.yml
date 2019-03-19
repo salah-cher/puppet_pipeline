@@ -1,0 +1,26 @@
+---
+- name : Run manifest syntax check
+  hosts: Puppet
+  become: yes
+  become_method: sudo
+  #serial: 1
+ # vars_files:
+ #   - /opt/Zonehawk_Ansible/AUDA/password.yaml
+
+
+  tasks:
+  - name: Run manifest syntax check
+    script: ../scripts/manifest.sh
+    register: checksyntax
+#    check_mode: no
+#    ignore_errors: yes
+    changed_when: false
+    failed_when: "'FAILED' in checksyntax.stderr or 'error' in checksyntax.stdout or  checksyntax.rc != 0"
+    #failed_when: "'error' in checksyntax.stdout"
+
+#  - name: inform if syntax has error
+#    debug: msg="error found in the hiera files"
+#    when: "'Error' in checksyntax.stdout"
+#  - name: inform if syntax has no errors
+#    debug: msg=" No errors found in hiera files"
+#    when: checksyntax.rc != 0

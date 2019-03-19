@@ -1,0 +1,6 @@
+---
+
+project: Puppet_DryRun
+branch: master
+playbook: playbooks/puppet_dry1.yml
+ansible_inventory: QA_Inventory

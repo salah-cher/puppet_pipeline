@@ -1,0 +1,5 @@
+---
+
+project: Check_Template_Syntax
+branch: master 
+playbook: playbooks/template_syntax.yml

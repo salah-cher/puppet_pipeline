@@ -1,0 +1,5 @@
+---
+
+project: Ansible_speed
+branch: master
+playbook: playbooks/speed.yml

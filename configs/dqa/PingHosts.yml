@@ -1,0 +1,6 @@
+---
+
+project: Ping_Hosts
+branch: master
+playbook: playbooks/con.yml
+ansible_inventory: QA_Inventory

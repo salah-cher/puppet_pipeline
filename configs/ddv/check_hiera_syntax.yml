@@ -1,0 +1,5 @@
+---
+
+project: Check_Hiera_Syntax
+branch: master
+playbook: playbooks/hiera_syntax.yml

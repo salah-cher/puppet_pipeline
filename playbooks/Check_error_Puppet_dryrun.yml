@@ -1,0 +1,21 @@
+---
+- name : Check puppet Dry Run Errors
+  hosts: Web
+  become: yes
+  become_method: sudo
+  serial: 1
+ # vars_files:
+ #   - /password.yaml
+
+  tasks:
+  - name: Check whether /tmp/puppet_dryrun contains "error"
+    shell: "source ~/.bash_profile && grep -i error /tmp/puppet_dryrun"
+    register: checkmyconf
+    check_mode: no
+    ignore_errors: yes
+    changed_when: false
+    failed_when: "'FAILED' in checkmyconf.stderr"
+
+  - name: inform if /tmp/puppet_dryrun contains error
+    debug: msg="error found in the puppet dryrun please check /tmp/puppet_dryrun for more information"
+    when: checkmyconf.rc == 0

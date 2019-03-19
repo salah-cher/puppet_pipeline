@@ -1,0 +1,6 @@
+---
+
+project: Puppet_DryRun_10
+branch: master
+playbook: playbooks/puppet_dry_10.yml
+ansible_inventory: STG_Inventory

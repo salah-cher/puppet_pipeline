@@ -1,0 +1,5 @@
+---
+
+project: Ping_Hosts
+branch: master
+playbook: playbooks/con.yml

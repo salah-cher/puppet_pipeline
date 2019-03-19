@@ -1,0 +1,5 @@
+---
+
+project: Check_Puppet_Syntax
+branch: master 
+playbook: playbooks/manifest.yml
